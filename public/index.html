@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="todoModule">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <style>
+        html {overflow-y:scroll;}
+        body {padding-top:50px;}
+        #todo-list {
+            margin-bottom: 30px;}
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="core.js"></script>
 </head>
-<body>
+<body ng-controller="mainController">
+    <div class="container">
+        <!-- Header and Todo count -->
+            <h1>I'm todo-aholic <span class="label label-info">{{ todos.length }}</span></h1>
+    </div>
+    <!-- Todo list-->
+    <div id="todo-list" class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="checkbox" ng-repeat="todo in todos">
+                <labe>
+                    <input  type="checkbox" ng-click="deleteTodo(todo._id)" class="type"> {{ todo.text }}</input>
+                </labe>
+            </div>
 
+        </div>
+    </div>
+
+    <!-- Form -->
+    <div id="todo-form" class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that love me forever" ng-model="formData.text">
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
