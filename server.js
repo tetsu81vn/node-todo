@@ -11,6 +11,7 @@ var morgan = require("morgan");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
+var port = process.env.PORT || 8080;
 var fs = require('fs');
 var path = require('path');
 
@@ -36,5 +37,5 @@ require('./app/routes.js')(app);
 
 
 // listen (start app with node server.js) ========================
-app.listen(8080);
-console.log("App listening on port 8080");
+app.listen(port);
+console.log("App listening on port " + port);
