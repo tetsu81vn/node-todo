@@ -15,7 +15,7 @@
     var path = require('path');
 
 // configuration =====================
-    mongoose.connect('mongodb://todo:123456@localhost:27017/todo?authSource=admin');
+    mongoose.connect('mongodb://hung:123456@localhost:27017/todoDb?authSource=user-data');
 
     app.use(express.static(__dirname + '/public'));
 
@@ -39,6 +39,11 @@
 
     // api -----------------
     // get all todos
+    /**
+     * @param  {[request]}
+     * @param  {[response]}
+     * @return {[json]}
+     */
     app.get('/api/todos', function(req, res){
         // use mongoose to get all todos in database
         Todo.find(function(err, todos){
@@ -66,7 +71,7 @@
             // get and return all the todos after you create another
             Todo.find(function(err, todos) {
                 if (err)
-                    res.send(err)
+                    res.send(err);
                 res.json(todos);
             });
         });
@@ -93,7 +98,7 @@
 
 
     app.get('*', function (req, res) {
-        res.sendfile('./public/index.html');
+        res.sendFile(__dirname + '/public/index.html');
     });
 
     // listen (start app with node server.js) ========================

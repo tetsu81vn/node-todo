@@ -1,0 +1,11 @@
+Task list:
+  ✔ Init project framework. @done (17-04-14 22:44)
+  ✔ Init db connection. @done (17-04-14 22:44)
+  ✔ Implement api. @done (17-04-14 22:44)
+      ✔ Implement list todos. @done (17-04-14 22:44)
+      ✔ Implement create todo. @done (17-04-14 22:44)
+      ✔ Implement delete todo. @done (17-04-14 22:44)
+  ✔ Implement Angular controller. @done (17-04-14 22:44)
+  ☐ Implement Angular view.
+
+
